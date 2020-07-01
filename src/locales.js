@@ -31,6 +31,8 @@ import pt from './locales/pt'
 
 import ru from './locales/ru'
 
+import tr from './locales/ru'
+
 /**
  * ✏️ Then add it to the list here:
  */
@@ -48,5 +50,6 @@ export {
   nl,
   ru,
   pl,
-  pt
+  pt,
+  tr
 }
