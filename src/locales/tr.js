@@ -37,7 +37,7 @@ const localizedValidationMessages = {
    * Valid accepted value.
    */
   accepted: function ({ name }) {
-    return `Please accept the ${name}.`
+    return `Lütfen kabul ediniz ${name}.`
   },
 
   /**
@@ -45,23 +45,23 @@ const localizedValidationMessages = {
    */
   after: function ({ name, args }) {
     if (Array.isArray(args) && args.length) {
-      return `${s(name)} must be after ${args[0]}.`
+      return `${s(name)} tarihi ${args[0]} tarihinden sonra olmalı.`
     }
-    return `${s(name)} must be a later date.`
+    return `${s(name)} ileri bir tarih olmalı.`
   },
 
   /**
    * The value is not a letter.
    */
   alpha: function ({ name }) {
-    return `${s(name)} can only contain alphabetical characters.`
+    return `${s(name)} sadece alfabetik karakterler içerebilir.`
   },
 
   /**
    * Rule: checks if the value is alpha numeric
    */
   alphanumeric: function ({ name }) {
-    return `${s(name)} can only contain letters and numbers.`
+    return `${s(name)} sadece harf ve rakamdan oluşabilir. `
   },
 
   /**
@@ -69,9 +69,9 @@ const localizedValidationMessages = {
    */
   before: function ({ name, args }) {
     if (Array.isArray(args) && args.length) {
-      return `${s(name)} must be before ${args[0]}.`
+      return `${s(name)} tarihi ${args[0]} tarihinden önce olmalı.`
     }
-    return `${s(name)} must be an earlier date.`
+    return `${s(name)} önceki bir tarih olmalı.`
   },
 
   /**
@@ -82,14 +82,14 @@ const localizedValidationMessages = {
     if ((!isNaN(value) && force !== 'length') || force === 'value') {
       return `${s(name)} must be between ${args[0]} and ${args[1]}.`
     }
-    return `${s(name)} must be between ${args[0]} and ${args[1]} characters long.`
+    return `${s(name)} uzunluğu ${args[0]} ve ${args[1]} arasında karakter içerebilir.`
   },
 
   /**
    * The confirmation field does not match
    */
   confirm: function ({ name, args }) {
-    return `${s(name)} does not match.`
+    return `${s(name)} eşleşmiyor.`
   },
 
   /**
@@ -97,16 +97,16 @@ const localizedValidationMessages = {
    */
   date: function ({ name, args }) {
     if (Array.isArray(args) && args.length) {
-      return `${s(name)} is not a valid date, please use the format ${args[0]}`
+      return `${s(name)} tarihi geçerli bir tarih değil , lütfen bu formatı kullanınız. ${args[0]}`
     }
-    return `${s(name)} is not a valid date.`
+    return `${s(name)} tarihi geçerli bir tarih değil.`
   },
 
   /**
    * The default render method for error messages.
    */
   default: function ({ name }) {
-    return `This field isn’t valid.`
+    return `Geçerli bir alan değil.`
   },
 
   /**
@@ -114,7 +114,7 @@ const localizedValidationMessages = {
    */
   email: function ({ name, value }) {
     if (!value) {
-      return 'Please enter a valid email address.'
+      return 'Lütfen geçerli bir email adresi giriniz.'
     }
     return `“${value}” is not a valid email address.`
   },
@@ -124,9 +124,9 @@ const localizedValidationMessages = {
    */
   endsWith: function ({ name, value }) {
     if (!value) {
-      return `This field doesn’t end with a valid value.`
+      return `Bu alan geçerli bir değerle bitmiyor.`
     }
-    return `“${value}” doesn’t end with a valid value.`
+    return `“${value}” geçerli bir değerle bitmiyor.`
   },
 
   /**
@@ -134,16 +134,16 @@ const localizedValidationMessages = {
    */
   in: function ({ name, value }) {
     if (typeof value === 'string' && value) {
-      return `“${s(value)}” is not an allowed ${name}.`
+      return `“${s(value)}” kabul edilebilir bir ${name} değil.`
     }
-    return `This is not an allowed ${name}.`
+    return `Bu kabul edilebilir bir ${name} değil.`
   },
 
   /**
    * Value is not a match.
    */
   matches: function ({ name }) {
-    return `${s(name)} is not an allowed value.`
+    return `${s(name)} kabul edilebilir bir değer değil.`
   },
 
   /**
@@ -151,20 +151,20 @@ const localizedValidationMessages = {
    */
   max: function ({ name, value, args }) {
     if (Array.isArray(value)) {
-      return `You may only select ${args[0]} ${name}.`
+      return `Bu ${args[0]} kadar ${name} seçebilirsiniz.`
     }
     const force = Array.isArray(args) && args[1] ? args[1] : false
     if ((!isNaN(value) && force !== 'length') || force === 'value') {
-      return `${s(name)} must be less than or equal to ${args[0]}.`
+      return `${s(name)}, ${args[0]} değerinden küçük ya da eşit olmalı.`
     }
-    return `${s(name)} must be less than or equal to ${args[0]} characters long.`
+    return `${s(name)} karakter sayısı ${args[0]} değerinden küçük ya da eşit olmalı`
   },
 
   /**
    * The (field-level) error message for mime errors.
    */
   mime: function ({ name, args }) {
-    return `${s(name)} must be of the the type: ${args[0] || 'No file formats allowed.'}`
+    return `${s(name)} must be of the the type: ${args[0] || 'Hiçbir dosya biçimine izin verilmiyor.'}`
   },
 
   /**
@@ -172,34 +172,34 @@ const localizedValidationMessages = {
    */
   min: function ({ name, value, args }) {
     if (Array.isArray(value)) {
-      return `You need at least ${args[0]} ${name}.`
+      return `En az bu kadar ${args[0]} ${name}.`
     }
     const force = Array.isArray(args) && args[1] ? args[1] : false
     if ((!isNaN(value) && force !== 'length') || force === 'value') {
-      return `${s(name)} must be at least ${args[0]}.`
+      return `${s(name)} en az bu kadar ${args[0]}.`
     }
-    return `${s(name)} must be at least ${args[0]} characters long.`
+    return `${s(name)} karakter sayısı ${args[0]} en az bu kadar olmalı.`
   },
 
   /**
    * The field is not an allowed value
    */
   not: function ({ name, value }) {
-    return `“${value}” is not an allowed ${name}.`
+    return `“${value}” kabul edilebilir bir ${name} değil.`
   },
 
   /**
    * The field is not a number
    */
   number: function ({ name }) {
-    return `${s(name)} must be a number.`
+    return `${s(name)} sayı olmalı.`
   },
 
   /**
    * Required field.
    */
   required: function ({ name }) {
-    return `${s(name)} is required.`
+    return `${s(name)} alan zorunludur.`
   },
 
   /**
@@ -207,16 +207,16 @@ const localizedValidationMessages = {
    */
   startsWith: function ({ name, value }) {
     if (!value) {
-      return `This field doesn’t start with a valid value.`
+      return `Bu alan geçerli bir değerle başlamıyor.`
     }
-    return `“${value}” doesn’t start with a valid value.`
+    return `“${value}” alan geçerli bir değerle başlamıyor.`
   },
 
   /**
    * Value is not a url.
    */
   url: function ({ name }) {
-    return `Please include a valid url.`
+    return `Lütfen geçerli bir url adresi kullanınız.`
   }
 }
 
